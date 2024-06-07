@@ -1,51 +1,54 @@
 # file-syncer
 
-Utility for syncing files -- mainly live-sync of folder symlinks to hardlinks. (for Docker and other stubborn tools)
+Live-sync of folder symlinks to hardlinks (for Docker and other stubborn tools)
 
 ## Install
 
 > Note: Installation is not necessary if using `npx file-syncer` to run.
 
-```
-yarn add file-syncer # or: npm i file-syncer
+```shell
+npm install file-syncer
 ```
 
 ## General usage
 
-```
-// basic
+```shell
+# basic
 npx file-syncer --from XXX YYY ZZZ --to HardLinked [--watch] [--async] [--autoKill] [etc...]
 
-// node-modules
+# node-modules
 npx file-syncer --from node_modules/XXX "node_modules/spa ces" --to HardLinked
 ```
 
-Run `npx file-syncer --help` for more details. (or check the option list in the [source code](https://github.com/Venryx/file-syncer/blob/master/Source/index.js))
+Run `npx file-syncer --help` for more details (or check the option list in the [source code](https://github.com/Venryx/file-syncer/blob/master/src/index.js)).
 
 ## Docker example
 
-From: https://stackoverflow.com/a/68765508
+From: https://stackoverflow.com/a/68765508/6456163
 
 Given the existing directory structure:
-```
+
+```shell
 parent_dir
-	- common_files
-		- file.txt
-	- my-app
-		- Dockerfile
-		- common_files -> symlink to ../common_files
+  - common_files
+    - file.txt
+  - my-app
+    - Dockerfile
+    - common_files -> symlink to ../common_files
 ```
 
 Basic usage:
-```
+
+```shell
 cd parent_dir
 
-// starts live-sync of files under "common_files" to "my-app/HardLinked/common_files"
+# starts live-sync of files under "common_files" to "my-app/HardLinked/common_files"
 npx file-syncer --from common_files --to my-app/HardLinked
 ```
 
 Then in your `Dockerfile`:
-```
+
+```shell
 [regular commands here...]
 
 # have docker copy/overlay the HardLinked folder's contents (common_files) into my-app itself
@@ -64,7 +67,3 @@ COPY HardLinked /
 
 * How is this better than a regular file-sync tool like Syncthing?
 > Some of those tools may be usable, but most have issues of one kind or another. The most common one is that the tool either cannot produce hard-links of existing files, or it's unable to "push an update" for a file that is already hard-linked (since hard-linked files do not notify file-watchers of their changes automatically, if the edited-at and watched-at paths differ). Another is that many of these sync tools are not designed for instant responding, and/or do not have run flags that make them easy to use in restricted build tools. (eg. for Tilt, the `--async` flag of `file-syncer` enables it to be used in a `local(...)` invokation in the project's `Tiltfile`)
-
-## Tasks
-
-1) Add better documentation.

@@ -1,38 +1,38 @@
 {
-	"name": "file-syncer",
-	"description": "Utility for syncing files -- mainly live-sync of folder symlinks to hardlinks. (for Docker and other stubborn tools)",
-	"version": "0.0.8",
-	"author": "Venryx (https://venryx.com)",
-	"#main": "Dist/index.js",
-	"#typings": "Dist/index.d.ts",
-	"main": "Source/index.js",
-	"bin": {
-		"file-syncer": "./bin/file-syncer"
-	},
-	"#type": "module",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Venryx/file-syncer.git"
-	},
-	"keywords": [
-		"file",
-		"folder",
-		"sync",
-		"synchronize",
-		"mirror",
-		"docker",
-		"symlink",
-		"hardlink"
-	],
-	"scripts": {
-		"dev": "tsc --watch",
-		"dist": "tsc"
-	},
-	"dependencies": {
-		"chokidar": "^3.5.2",
-		"find-process": "^1.4.4",
-		"sync-directory": "^2.2.22",
-		"typescript": "^4.3.5"
-	}
+  "name": "file-syncer",
+  "description": "Live-sync of folder symlinks to hardlinks (for Docker and other stubborn tools)",
+  "version": "1.0.0",
+  "author": "Aaron Meese <aaron@meese.dev>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "bin": {
+    "file-syncer": "./bin/file-syncer"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "dist": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meese-enterprises/file-syncer.git"
+  },
+  "keywords": [
+    "file",
+    "folder",
+    "sync",
+    "synchronize",
+    "mirror",
+    "docker",
+    "symlink",
+    "hardlink"
+  ],
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "find-process": "^1.4.7",
+    "sync-directory": "^6.0.5",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2"
+  }
 }
