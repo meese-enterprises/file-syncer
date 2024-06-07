@@ -7,20 +7,20 @@ Live-sync of folder symlinks to hardlinks (for Docker and other stubborn tools)
 > Note: Installation is not necessary if using `npx file-syncer` to run.
 
 ```shell
-npm install file-syncer
+npm install @meese-enterprises/file-syncer
 ```
 
 ## General usage
 
 ```shell
 # basic
-npx file-syncer --from XXX YYY ZZZ --to HardLinked [--watch] [--async] [--autoKill] [etc...]
+npx @meese-enterprises/file-syncer --from XXX YYY ZZZ --to HardLinked [--watch] [--async] [--autoKill] [etc...]
 
 # node-modules
-npx file-syncer --from node_modules/XXX "node_modules/spa ces" --to HardLinked
+npx @meese-enterprises/file-syncer --from node_modules/XXX "node_modules/spa ces" --to HardLinked
 ```
 
-Run `npx file-syncer --help` for more details (or check the option list in the [source code](https://github.com/Venryx/file-syncer/blob/master/src/index.js)).
+Run `npx @meese-enterprises/file-syncer --help` for more details (or check the option list in the [source code](https://github.com/meese-enterprises/file-syncer/blob/master/src/index.js)).
 
 ## Docker example
 
@@ -43,7 +43,7 @@ Basic usage:
 cd parent_dir
 
 # starts live-sync of files under "common_files" to "my-app/HardLinked/common_files"
-npx file-syncer --from common_files --to my-app/HardLinked
+npx @meese-enterprises/file-syncer --from common_files --to my-app/HardLinked
 ```
 
 Then in your `Dockerfile`:

@@ -1,5 +1,5 @@
 {
-  "name": "file-syncer",
+  "name": "@meese-enterprises/file-syncer",
   "description": "Live-sync of folder symlinks to hardlinks (for Docker and other stubborn tools)",
   "version": "1.0.0",
   "author": "Aaron Meese <aaron@meese.dev>",
