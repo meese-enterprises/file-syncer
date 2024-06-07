@@ -4,7 +4,7 @@ Live-sync of folder symlinks to hardlinks (for Docker and other stubborn tools)
 
 ## Install
 
-> Note: Installation is not necessary if using `npx file-syncer` to run.
+> Note: Installation is not necessary if using `npx @meese-enterprises/file-syncer` to run.
 
 ```shell
 npm install @meese-enterprises/file-syncer
